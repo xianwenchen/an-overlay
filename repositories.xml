@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<repositories version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
+    <name>an-overlay</name>    
+    <description>Here I store Gentoo Linux ebuild that I personally use.</description>
+    <homepage>https://github.com/xianwenchen/an-overlay</homepage>
+    <owner>
+      <email>larry@gentoo.org</email>
+    </owner>
+    <source type="git">https://github.com/xianwenchen/an-overlay.git</source>
+  </repo>
