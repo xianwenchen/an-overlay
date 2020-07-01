@@ -27,7 +27,6 @@ SRC_URI="
 	https://api.github.com/repos/vtjnash/libwhich/tarball/${MY_LIBWHICH_V} -> ${PN}-libwhich-${MY_LIBWHICH_V}.tar.gz
 	https://curl.haxx.se/ca/cacert-${MY_CACERT_V}.pem -> ${PN}-cacert-${MY_CACERT_V}.pem
 	http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/dSFMT-src-${MY_DSFMT_V}.tar.gz -> ${PN}-dsfmt-${MY_DSFMT_V}.tar.gz
-	https://dev.gentoo.org/~tamiko/distfiles/Pkg-${MY_PKG_V}.tar.gz
 	!system-llvm? ( http://releases.llvm.org/${MY_LLVM_V}/llvm-${MY_LLVM_V}.src.tar.xz )
 "
 
