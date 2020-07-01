@@ -20,14 +20,14 @@ MY_UTF8PROC_V="5c632c57426f2e4246e3b64dd2fd088d3920f9e5"
 DESCRIPTION="High-performance programming language for technical computing"
 HOMEPAGE="https://julialang.org/"
 SRC_URI="
-	https://github.com/JuliaLang/${PN}/releases/download/v${MY_PV}-rc1/${PN}-${MY_PV}-rc1.tar.gz -> ${PN}-${MY_PV}.tar.gz
+	https://github.com/JuliaLang/${PN}/releases/download/v${MY_PV}-rc1/${PN}-${MY_PV}-rc1.tar.gz
 	https://api.github.com/repos/JuliaLang/libuv/tarball/${MY_LIBUV_V} -> ${PN}-libuv-${MY_LIBUV_V}.tar.gz
 	https://api.github.com/repos/JuliaLang/utf8proc/tarball/${MY_UTF8PROC_V} -> ${PN}-utf8proc-${MY_UTF8PROC_V}.tar.gz
 	https://api.github.com/repos/libgit2/libgit2/tarball/${MY_LIBGIT2_V} -> ${PN}-libgit2-${MY_LIBGIT2_V}.tar.gz
 	https://api.github.com/repos/vtjnash/libwhich/tarball/${MY_LIBWHICH_V} -> ${PN}-libwhich-${MY_LIBWHICH_V}.tar.gz
 	https://curl.haxx.se/ca/cacert-${MY_CACERT_V}.pem -> ${PN}-cacert-${MY_CACERT_V}.pem
 	http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/dSFMT-src-${MY_DSFMT_V}.tar.gz -> ${PN}-dsfmt-${MY_DSFMT_V}.tar.gz
-	https://dev.gentoo.org/~tamiko/distfiles/Pkg-${MY_PKG_V}.tar.gz -> ${PN}-Pkg-${MY_PKG_V}.tar.gz
+	https://dev.gentoo.org/~tamiko/distfiles/Pkg-${MY_PKG_V}.tar.gz
 	!system-llvm? ( http://releases.llvm.org/${MY_LLVM_V}/llvm-${MY_LLVM_V}.src.tar.xz )
 "
 
