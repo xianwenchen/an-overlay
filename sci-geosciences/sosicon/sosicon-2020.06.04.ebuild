@@ -27,18 +27,18 @@ src_prepare(){
 
 	sed -i \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
-		src/makefile || die
+		sosicon-${sosicon_git_commit}/src/makefile || die
 }
 
 src_compile() {
-	cd src
+	cd sosicon-${sosicon_git_commit}/src
 	emake
 		prefix="${EPREFIX}/usr" DESTDIR="${D}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)"
 }
 
 src_install() {
-        cd src
+        cd sosicon-${sosicon_git_commit}/src
 	emake install \
 		prefix="${EPREFIX}/usr" DESTDIR="${D}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)"
