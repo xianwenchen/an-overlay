@@ -17,9 +17,9 @@ SLOT="0/3.0"
 LICENSE="GPL-3"
 KEYWORDS="amd64 x86"
 
+S="sosicon-${sosicon_git_commit}/src"
+
 src_prepare(){
-	mv sosicon-${sosicon_git_commit}/src ${PN}-${PV}
-	
 	default
 
 	# Sledgehammer:
@@ -29,18 +29,16 @@ src_prepare(){
 
 	sed -i \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
-		sosicon-${sosicon_git_commit}/src/makefile || die
+		makefile || die
 }
 
 src_compile() {
-	cd sosicon-${sosicon_git_commit}/src
 	emake
 		prefix="${EPREFIX}/usr" DESTDIR="${D}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)"
 }
 
 src_install() {
-        cd sosicon-${sosicon_git_commit}/src
 	emake install \
 		prefix="${EPREFIX}/usr" DESTDIR="${D}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)"
