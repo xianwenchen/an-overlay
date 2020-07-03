@@ -19,7 +19,7 @@ KEYWORDS="amd64 x86"
 
 S="${WORKDIR}/sosicon-${sosicon_git_commit}/src"
 
-tc-export CXX
+CXX=$(tc-getCXX)
 
 src_prepare(){
 	default
