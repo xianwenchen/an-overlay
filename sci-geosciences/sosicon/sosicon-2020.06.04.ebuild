@@ -29,6 +29,7 @@ src_prepare(){
 
 		sed -i \
 		-e "s|CC = g++|CC = ccache g++|g" \
+		-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
 		makefile || die
 }
