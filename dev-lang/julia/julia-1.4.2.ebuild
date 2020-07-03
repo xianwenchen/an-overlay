@@ -39,7 +39,7 @@ IUSE="system-llvm"
 RDEPEND="
 	system-llvm? ( sys-devel/llvm:9=[llvm_targets_NVPTX(-)] )
 "
-LLVM_MAX_SLOT=10
+LLVM_MAX_SLOT=9
 
 RDEPEND+="
 	dev-libs/double-conversion:0=
