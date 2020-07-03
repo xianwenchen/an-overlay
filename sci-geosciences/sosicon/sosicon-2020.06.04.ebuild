@@ -28,7 +28,7 @@ src_prepare(){
 	# - respect EPREFIX and Gentoo specific paths
 
 		sed -i \
-		-e "s|CC = g++|CC = "ccache g++" \
+		-e "s|CC = g++|CC = "ccache g++|g" \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
 		makefile || die
 }
