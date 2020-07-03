@@ -27,8 +27,8 @@ src_prepare(){
 	# - respect CFLAGS
 	# - respect EPREFIX and Gentoo specific paths
 
-	sed -i \
-		-e "s|CC = g++|CC = ${tc-getCXX}|g" \
+		sed -i \
+		-e "s|CC = g++|CC = $(tc-getCXX)|g" \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
 		makefile || die
 }
