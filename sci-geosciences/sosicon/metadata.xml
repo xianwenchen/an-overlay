@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>x@chen.ac</email>
+    <name>Xianwen Chen</name>
+  </maintainer>
+  <longdescription lang="en">
+    sosicon converts a soci formatted map file to a shapefile or a PostGIS file.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">espena/sosicon</remote-id>
+  </upstream>
+</pkgmetadata>
