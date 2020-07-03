@@ -17,7 +17,7 @@ SLOT="0/3.0"
 LICENSE="GPL-3"
 KEYWORDS="amd64 x86"
 
-S="sosicon-${sosicon_git_commit}/src"
+S="${WORKDIR}/sosicon-${sosicon_git_commit}/src"
 
 src_prepare(){
 	default
