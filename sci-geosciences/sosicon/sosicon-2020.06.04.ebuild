@@ -18,6 +18,8 @@ LICENSE="GPL-3"
 KEYWORDS="amd64 x86"
 
 src_prepare(){
+	mv sosicon-${sosicon_git_commit}/src ${PN}-${PV}
+	
 	default
 
 	# Sledgehammer:
