@@ -28,14 +28,14 @@ src_prepare(){
 	# - respect EPREFIX and Gentoo specific paths
 
 		sed -i \
-		-e "s|CC = g++|CC = g++|g" \
+		-e "s|CC = g++|CXX ?= g++|g" \
 		-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
 		makefile || die
 }
 
 src_compile() {
-	emake prefix="${EPREFIX}/usr" DESTDIR="${D}"
+	emake CXX="$(tc-getCXX)" prefix="${EPREFIX}/usr" DESTDIR="${D}"
 
 }
 
