@@ -19,6 +19,8 @@ KEYWORDS="amd64 x86"
 
 S="${WORKDIR}/sosicon-${sosicon_git_commit}/src"
 
+tc-export CXX
+
 src_prepare(){
 	default
 
@@ -28,7 +30,7 @@ src_prepare(){
 	# - respect EPREFIX and Gentoo specific paths
 
 		sed -i \
-		-e "s|CC = g++|CC = ccache g++|g" \
+		-e "s|CC = g++|CC = ${CXX}|g" \
 		-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
 		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
 		makefile || die
