@@ -15,7 +15,7 @@ SRC_URI="https://download.osgeo.org/${PN}/${PV}/${P}.tar.gz"
 SLOT="0/3.0"
 LICENSE="BSD Info-ZIP MIT"
 KEYWORDS="amd64 ~arm arm64 ~ia64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos"
-IUSE="armadillo +aux-xml curl debug doc fits geos gif gml hdf5 java jpeg jpeg2k lzma mdb mysql netcdf odbc ogdi opencl oracle pdf perl png postgres python spatialite sqlite threads webp xls zstd"
+IUSE="armadillo +aux-xml curl debug doc fits geos gif gml hdf5 java jpeg jpeg2k lzma mdb mrsid mysql netcdf odbc ogdi opencl oracle pdf perl png postgres python spatialite sqlite threads webp xls zstd"
 
 REQUIRED_USE="
 	mdb? ( java )
@@ -148,13 +148,10 @@ src_configure() {
 		--without-ingres
 		--without-jasper
 		--without-jp2lura
-		--without-jp2mrsid
 		--without-kakadu
 		--without-kea
 		--without-libkml
 		--without-mongocxx
-		--without-mrsid
-		--without-mrsid_lidar
 		--without-msg
 		--without-rasdaman
 		--without-rasterlite2
@@ -181,6 +178,7 @@ src_configure() {
 		$(use_with jpeg)
 		$(use_with jpeg2k openjpeg)
 		$(use_with lzma liblzma)
+		$(use_with mrsid jp2mrsid mrsid_lidar)
 		$(use_with mysql mysql "${EPREFIX}"/usr/bin/mysql_config)
 		$(use_with netcdf)
 		$(use_with oracle oci)
