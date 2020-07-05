@@ -22,15 +22,12 @@ S="${WORKDIR}/sosicon-${sosicon_git_commit}/src"
 src_prepare(){
 	default
 
-	# Sledgehammer:
-	# - prevent fetching of bundled stuff in compile and install phase
-	# - respect CFLAGS
-	# - respect EPREFIX and Gentoo specific paths
+	mv makefile Makefile
 
-		sed -i \
-		-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
-		-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
-		makefile || die
+	sed -i \		
+	-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
+	-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
+	Makefile || die
 }
 
 src_compile() {
