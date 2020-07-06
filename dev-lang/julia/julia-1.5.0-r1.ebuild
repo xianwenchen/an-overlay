@@ -105,35 +105,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	default
 
-	# Sledgehammer:
-	# - prevent fetching of bundled stuff in compile and install phase
-	# - respect CFLAGS
-	# - respect EPREFIX and Gentoo specific paths
-
-	sed -i \
-		-e "s|git submodule|${EPREFIX}/bin/true|g" \
-		-e "s|GENTOOCFLAGS|${CFLAGS}|g" \
-		-e "s|/usr/include|${EPREFIX}/usr/include|g" \
-		deps/Makefile || die
-
-	sed -i \
-		-e "s|GENTOOCFLAGS|${CFLAGS}|g" \
-		-e "s|GENTOOLIBDIR|$(get_libdir)|" \
-		Make.inc || die
-
-	sed -i \
-		-e "s|,lib)|,$(get_libdir))|g" \
-		-e "s|\$(BUILD)/lib|\$(BUILD)/$(get_libdir)|g" \
-		Makefile || die
-
-	sed -i \
-		-e "s|ar -rcs|$(tc-getAR) -rcs|g" \
-		src/Makefile || die
-
-	# disable doc install starting	git fetching
-	sed -i -e 's~install: $(build_depsbindir)/stringreplace $(BUILDROOT)/doc/_build/html/en/index.html~install: $(build_depsbindir)/stringreplace~' Makefile || die
 }
 
 src_configure() {
@@ -166,6 +138,18 @@ src_configure() {
 		USE_SYSTEM_P7ZIP:=1
 		VERBOSE=1
 		libdir="${EROOT}/usr/$(get_libdir)"
+
+		# Link to the LLVM shared library
+		USE_LLVM_SHLIB := 0
+
+		# Prevent picking up $ARCH from the environment variables
+		ARCH:= x86_64
+
+		ifeq ($(USEGCC),1)
+		     SHIPFLAGS := -O2 -ggdb2 -falign-functions
+		endif
+
+		MARCH := nocona
 	EOF
 }
 
