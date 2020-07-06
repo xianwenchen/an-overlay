@@ -24,10 +24,7 @@ src_prepare(){
 
 	mv makefile Makefile
 
-	sed -i \		
-	-e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" \
-	-e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" \
-	Makefile || die
+	sed -i -e "s|INSTALL_PATH ?= /usr/local|INSTALL_PATH = ${D}|g" -e "s|COMPILER_OPTS =|COMPILER_OPTS = ${CXXFLAGS}|g" Makefile || die
 }
 
 src_compile() {
