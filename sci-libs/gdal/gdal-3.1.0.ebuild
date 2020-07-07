@@ -88,7 +88,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.2.3-soname.patch"
 	"${FILESDIR}/${PN}-2.3.0-curl.patch" # bug 659840
 #	"${FILESDIR}/${PN}-3.0.2-complete.patch"
-	"${FILESDIR}/${PN}-3.0.2-datadir.patch"
+#	"${FILESDIR}/${PN}-3.0.2-datadir.patch"
 )
 
 src_prepare() {
