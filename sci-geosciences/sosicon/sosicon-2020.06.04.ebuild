@@ -38,4 +38,8 @@ src_compile() {
 src_install() {
 	mkdir ${D}/bin
 	emake install prefix="${EPREFIX}/usr" DESTDIR="${D}"
+	# The Makefile does not honor "prefix=".
+	# I am fixing it manually now.
+	mkdir ${D}/usr
+	mv ${D}/bin ${D}/usr
 }
