@@ -69,11 +69,11 @@ DEPEND="${RDEPEND}
 	dev-util/patchelf
 	virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.1.0-fix_build_system.patch
-	"${FILESDIR}"/${PN}-1.1.0-fix_llvm_install.patch
-	"${FILESDIR}"/${PN}-1.4.0-no_symlink_llvm.patch
-)
+#PATCHES=(
+#	"${FILESDIR}"/${PN}-1.1.0-fix_build_system.patch
+#	"${FILESDIR}"/${PN}-1.1.0-fix_llvm_install.patch
+#	"${FILESDIR}"/${PN}-1.4.0-no_symlink_llvm.patch
+#)
 
 S="${WORKDIR}/${PN}-${MY_PV}"
 
