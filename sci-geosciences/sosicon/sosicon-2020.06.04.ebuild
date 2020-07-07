@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+# "inherit toolchain-funcs" is necessary, so that "tc-*" functions are useful.
+inherit toolchain-funcs
 
 RESTRICT="splitdebug"
 
@@ -13,7 +15,7 @@ SRC_URI="
         https://github.com/espena/sosicon/archive/${sosicon_git_commit}.zip
 "
 
-SLOT="0/3.0"
+SLOT="0"
 LICENSE="GPL-3"
 KEYWORDS="amd64 x86"
 
