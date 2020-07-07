@@ -158,7 +158,7 @@ src_compile() {
 	# Julia accesses /proc/self/mem on Linux
 	addpredict /proc/self/mem
 
-	emake julia-release \
+	emake \
 		prefix="${EPREFIX}/usr" DESTDIR="${D}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)"
 	pax-mark m "$(file usr/bin/julia-* | awk -F : '/ELF/ {print $1}')"
