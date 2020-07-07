@@ -75,7 +75,7 @@ DEPEND="${RDEPEND}
 #	"${FILESDIR}"/${PN}-1.4.0-no_symlink_llvm.patch
 #)
 
-S="${WORKDIR}/${PN}-${MY_PV}"
+S="${WORKDIR}/${PN}-${MY_PV}-rc1"
 
 pkg_setup() {
 	use system-llvm && llvm_pkg_setup
