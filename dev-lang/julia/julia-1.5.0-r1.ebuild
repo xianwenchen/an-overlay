@@ -21,12 +21,6 @@ DESCRIPTION="High-performance programming language for technical computing"
 HOMEPAGE="https://julialang.org/"
 SRC_URI="
 	https://github.com/JuliaLang/${PN}/releases/download/v${MY_PV}-rc1/${PN}-${MY_PV}-rc1.tar.gz
-	https://api.github.com/repos/JuliaLang/libuv/tarball/${MY_LIBUV_V} -> ${PN}-libuv-${MY_LIBUV_V}.tar.gz
-	https://api.github.com/repos/JuliaLang/utf8proc/tarball/${MY_UTF8PROC_V} -> ${PN}-utf8proc-${MY_UTF8PROC_V}.tar.gz
-	https://api.github.com/repos/libgit2/libgit2/tarball/${MY_LIBGIT2_V} -> ${PN}-libgit2-${MY_LIBGIT2_V}.tar.gz
-	https://api.github.com/repos/vtjnash/libwhich/tarball/${MY_LIBWHICH_V} -> ${PN}-libwhich-${MY_LIBWHICH_V}.tar.gz
-	https://curl.haxx.se/ca/cacert-${MY_CACERT_V}.pem -> ${PN}-cacert-${MY_CACERT_V}.pem
-	http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/dSFMT-src-${MY_DSFMT_V}.tar.gz -> ${PN}-dsfmt-${MY_DSFMT_V}.tar.gz
 	!system-llvm? ( http://releases.llvm.org/${MY_LLVM_V}/llvm-${MY_LLVM_V}.src.tar.xz )
 "
 
@@ -86,22 +80,22 @@ src_unpack() {
 	# the main source tree, followed by deps
 	unpack "${A/%\ */}"
 
-	mkdir -p "${S}/deps/srccache/"
-	for i in "${tounpack[@]:1}"; do
-		if [[ $i == *Pkg* ]] || [[ $i = *Statistics* ]]; then
-			# Bundled Pkg and Statistics packages go into ./stdlib
-			local tarball="${i#julia-}"
-			cp "${DISTDIR}/${i}" "${S}/stdlib/srccache/${tarball}" || die
-			# and we have to fix up the sha1sum
-			local name="${tarball%-*}"
-			local sha1="${tarball#*-}"
-			sha1="${sha1%.tar*}"
-			einfo "using patched stdlib package \"${name}\""
-			sed -i -e "s/PKG_SHA1 = .*/PKG_SHA1 = ${sha1}/" "${S}/stdlib/${name}.version" || die
-		else
-			cp "${DISTDIR}/${i}" "${S}/deps/srccache/${i#julia-}" || die
-		fi
-	done
+#	mkdir -p "${S}/deps/srccache/"
+#	for i in "${tounpack[@]:1}"; do
+#		if [[ $i == *Pkg* ]] || [[ $i = *Statistics* ]]; then
+#			# Bundled Pkg and Statistics packages go into ./stdlib
+#			local tarball="${i#julia-}"
+#			cp "${DISTDIR}/${i}" "${S}/stdlib/srccache/${tarball}" || die
+#			# and we have to fix up the sha1sum
+#			local name="${tarball%-*}"
+#			local sha1="${tarball#*-}"
+#			sha1="${sha1%.tar*}"
+#			einfo "using patched stdlib package \"${name}\""
+#			sed -i -e "s/PKG_SHA1 = .*/PKG_SHA1 = ${sha1}/" "${S}/stdlib/${name}.version" || die
+#		else
+#			cp "${DISTDIR}/${i}" "${S}/deps/srccache/${i#julia-}" || die
+#		fi
+#	done
 }
 
 #src_prepare() {
