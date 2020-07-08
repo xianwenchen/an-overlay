@@ -7,7 +7,7 @@ RESTRICT="splitdebug"
 
 inherit llvm pax-utils toolchain-funcs
 
-MY_PV="${PV//_rc/-rc}"
+MY_PV="${PV//_rc/-rc}-rc1"
 MY_CACERT_V="2020-01-01"
 MY_DSFMT_V="2.2.3"
 MY_LIBGIT2_V="b3e1a56ebb2b9291e82dc027ba9cbcfc3ead54d3"
@@ -20,7 +20,7 @@ MY_UTF8PROC_V="5c632c57426f2e4246e3b64dd2fd088d3920f9e5"
 DESCRIPTION="High-performance programming language for technical computing"
 HOMEPAGE="https://julialang.org/"
 SRC_URI="
-	https://github.com/JuliaLang/${PN}/releases/download/v${MY_PV}-rc1/${PN}-${MY_PV}-rc1.tar.gz
+	https://github.com/JuliaLang/${PN}/releases/download/v${MY_PV}/${PN}-${MY_PV}-full.tar.gz
 	!system-llvm? ( http://releases.llvm.org/${MY_LLVM_V}/llvm-${MY_LLVM_V}.src.tar.xz )
 "
 
@@ -69,7 +69,7 @@ DEPEND="${RDEPEND}
 #	"${FILESDIR}"/${PN}-1.4.0-no_symlink_llvm.patch
 #)
 
-S="${WORKDIR}/${PN}-${MY_PV}-rc1"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 pkg_setup() {
 	use system-llvm && llvm_pkg_setup
